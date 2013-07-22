@@ -104,6 +104,7 @@ BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/lge/p990/vibrator.c
 
 # TWRP
 TARGET_RECOVERY_INITRC := device/lge/p990/init.recovery.rc
+TW_BRIGHTNESS_PATH := /sys/class/backlight/aat2870-backlight/brightness
 DEVICE_RESOLUTION := 480x800
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
