@@ -16,11 +16,16 @@ TARGET_CPU_VARIANT := tegra2
 TARGET_ARCH_VARIANT := armv7-a
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := vfpv3-d16
-TARGET_USE_OS := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
 TARGET_BOOTLOADER_BOARD_NAME := p990
+
+# Low RAM config
 TARGET_ARCH_LOWMEM := true
+TARGET_USE_OS := true
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.config.low_ram=true  \
+        dalvik.vm.jit.codecachesize=0
 
 # filesystem
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
