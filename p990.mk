@@ -42,6 +42,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
+        ro.zygote.disable_gl_preload=1 \
+        ro.bq.gpu_to_cpu_unsupported=1 \
         ro.opengles.version=196608 \
         ro.telephony.call_ring.multiple=false \
         ro.telephony.call_ring.delay=3000 \
@@ -73,6 +75,7 @@ PRODUCT_PACKAGES += \
     lights.star \
     libbridge \
     libbridge_jni \
+    libemoji \
     screencap \
     audio.a2dp.default \
     hwcomposer.default \
@@ -104,6 +107,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/p990/twrp.fstab:recovery/root/etc/twrp.fstab
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.selinux=disabled
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/charger:root/charger \
