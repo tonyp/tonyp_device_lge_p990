@@ -77,6 +77,7 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 
 # camera
 COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 # graphics
 BOARD_USE_SKIA_LCDTEXT := true
@@ -104,6 +105,7 @@ TARGET_RECOVERY_PRE_COMMAND := "/system/bin/setup-recovery"
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/lge/p990/fstab.star
 RECOVERY_FSTAB_VERSION := 2
+USE_SET_METADATA := false
 
 # sensors
 BOARD_SYSFS_LIGHT_SENSOR := "/sys/class/backlight/aat2870-backlight/brightness_mode"
