@@ -42,17 +42,18 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.zygote.disable_gl_preload=1 \
-        ro.bq.gpu_to_cpu_unsupported=1 \
-        ro.opengles.version=196608 \
-        ro.telephony.call_ring.multiple=false \
-        ro.telephony.call_ring.delay=3000 \
-        ro.telephony.call_ring.absent=true \
-        ro.hardware.respect_als=true \
-        ro.bt.bdaddr_path=/sys/devices/platform/bd_address/bdaddr_if \
+    ro.zygote.disable_gl_preload=1 \
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    ro.opengles.version=196608 \
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.call_ring.delay=3000 \
+    ro.telephony.call_ring.absent=true \
+    ro.hardware.respect_als=true \
+    ro.bt.bdaddr_path=/sys/devices/platform/bd_address/bdaddr_if \
 	debug.sf.electron_frames=42 \
 	nv-camera-disable-early-graph=1 \
 	dalvik.vm.dexopt-data-only=1 \
+    debug.hwui.render_dirty_regions=false \
 	ro.lge.audio_soundexception=true \
 	ro.zram.default=18 \
 	persist.service.zram=18
