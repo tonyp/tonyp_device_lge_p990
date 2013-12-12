@@ -2,9 +2,7 @@ LOCAL_PATH := device/lge/p990
 TARGET_SPECIFIC_HEADER_PATH := device/lge/p990/include
 TARGET_OVERLAY_ALWAYS_DETERMINES_FORMAT := true
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lge/p990/releasetools/p990-newbl_ota_from_target_files
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_HARDWARE_CLASS := device/lge/p990/cmhw/
-TARGET_USE_PIPE := true
 
 # CPU
 TARGET_ARCH := arm
@@ -21,13 +19,8 @@ TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
 TARGET_BOOTLOADER_BOARD_NAME := p990
-
-# Low RAM config
 TARGET_ARCH_LOWMEM := true
-TARGET_USE_OS := true
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.config.low_ram=true  \
-        dalvik.vm.jit.codecachesize=0
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # filesystem
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
@@ -47,6 +40,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_PAGE_SIZE := 0x00000800
 #TARGET_KERNEL_SOURCE := kernel/lge/star
 #TARGET_KERNEL_CONFIG := cyanogenmod_p990_defconfig
+HAVE_SELINUX := false
 
 # prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/lge/p990/kernel/zImage
@@ -111,10 +105,15 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/lge/p990/fstab.star
 RECOVERY_FSTAB_VERSION := 2
 USE_SET_METADATA := false
+SKIP_SET_METADATA := true
 
 # sensors
 BOARD_SYSFS_LIGHT_SENSOR := "/sys/class/backlight/aat2870-backlight/brightness_mode"
 BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/lge/p990/vibrator.c
+
+# Various
+TARGET_USE_PIPE := true
+TARGET_USE_OS := true
 
 # TWRP
 TARGET_RECOVERY_INITRC := device/lge/p990/init.recovery.rc

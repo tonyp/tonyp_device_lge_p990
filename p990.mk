@@ -44,6 +44,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=1 \
     ro.bq.gpu_to_cpu_unsupported=1 \
+    ro.config.low_ram=true \
+    dalvik.vm.jit.codecachesize=0 \
     ro.opengles.version=196608 \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000 \
@@ -113,7 +115,8 @@ PRODUCT_COPY_FILES += \
     device/lge/p990/twrp.fstab:recovery/root/etc/twrp.fstab
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.selinux=disabled
+    ro.boot.selinux=disabled \
+    ro.build.selinux=0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/charger:root/charger \
