@@ -1,0 +1,50 @@
+From 069461f16e0148f3baee1a1fc1b414a9ae81f6f8 Mon Sep 17 00:00:00 2001
+From: kasperhettinga <kasper.hettinga@gmail.com>
+Date: Tue, 10 Dec 2013 16:05:31 +0100
+Subject: [PATCH] Add BOARD_EGL_NEEDS_LEGACY_FB flags to SurfaceFlinger
+
+To solve soft-reboot on Omni for p4wifi
+
+Big thanks to Daniel Tjandra/AAccount
+
+Change-Id: Id4a83ee3b636b0e2072497e74a37fc998dd85030
+---
+ services/surfaceflinger/SurfaceFlinger.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index fed1876..ef2915c 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -2920,10 +2920,12 @@ status_t SurfaceFlinger::captureScreen(const sp<IBinder>& display,
+         virtual bool handler() {
+             Mutex::Autolock _l(flinger->mStateLock);
+             sp<const DisplayDevice> hw(flinger->getDisplayDevice(display));
++#ifndef BOARD_EGL_NEEDS_LEGACY_FB
+             bool useReadPixels = this->useReadPixels && !flinger->mGpuToCpuSupported;
+             result = flinger->captureScreenImplLocked(hw,
+                     producer, reqWidth, reqHeight, minLayerZ, maxLayerZ,
+                     useReadPixels);
++#endif
+             static_cast<GraphicProducerWrapper*>(producer->asBinder().get())->exit(result);
+             return true;
+         }
+@@ -3084,6 +3086,7 @@ status_t SurfaceFlinger::captureScreenImplLocked(
+                             // not fatal
+                         }
+ 
++#ifndef BOARD_EGL_NEEDS_LEGACY_FB
+                         if (useReadPixels) {
+                             sp<GraphicBuffer> buf = static_cast<GraphicBuffer*>(buffer);
+                             void* vaddr;
+@@ -3092,6 +3095,7 @@ status_t SurfaceFlinger::captureScreenImplLocked(
+                                 buf->unlock();
+                             }
+                         }
++#endif
+ 
+                         if (DEBUG_SCREENSHOTS) {
+                             uint32_t* pixels = new uint32_t[reqWidth*reqHeight];
+-- 
+1.8.5.1
+

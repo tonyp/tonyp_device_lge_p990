@@ -56,6 +56,15 @@ else
 	echo "     [FAIL]"
 fi
 
+echo -n "Apply patch 0004-framework-native-fix-surfaceflinger.patch"
+(cd frameworks/native; git am ../../device/lge/p990/patches/0004-framework-native-fix-surfaceflinger.patch) > /dev/null 2>&1
+if [ $? == 0 ]; then
+	echo "     [DONE]"
+else
+	(cd frameworks/native; git am --abort)
+	echo "     [FAIL]"
+fi
+
 echo "Apply patch to frameworks/av"
 echo -n "Apply patch 0001-ifdef-for-ICS-Audio-Blob-compatibility.patch"
 (cd frameworks/av; git am ../../device/lge/p990/patches/0001-ifdef-for-ICS-Audio-Blob-compatibility.patch) > /dev/null 2>&1
