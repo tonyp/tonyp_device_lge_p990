@@ -44,6 +44,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=1 \
     ro.bq.gpu_to_cpu_unsupported=1 \
+    sys.disable_ext_animation=1 \
     ro.config.low_ram=true \
     dalvik.vm.jit.codecachesize=0 \
     ro.opengles.version=196608 \
