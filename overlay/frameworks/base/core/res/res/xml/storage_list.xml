@@ -38,7 +38,6 @@
              android:storageDescription="@string/storage_internal"
              android:primary="true"
              android:removable="false"
-             android:maxFileSize="4096"
              android:allowMassStorage="true"/>
 
     <!-- external SD card -->
@@ -46,6 +45,5 @@
              android:storageDescription="@string/storage_sd_card"
              android:primary="false"
              android:removable="true"
-	     android:maxFileSize="4096"
              android:allowMassStorage="true"/>
 </StorageList>
