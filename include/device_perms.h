@@ -4,7 +4,7 @@
     { "rawip_vsnet3",AID_RADIO, AID_RADIO }, \
     { "rawip_vsnet4",AID_RADIO, AID_RADIO }, \
     { "vsnet1_down", AID_RADIO, AID_RADIO }, \
-    { "vsnet2_down", AID_RADIO, AID_RADIO }, \
+    { "vsnet2_down", AID_RADIO, AID_RADIO },
 
 #define PROPERTY_PERMS_APPEND \
     { "service.",                    AID_RADIO,    0 }, \
