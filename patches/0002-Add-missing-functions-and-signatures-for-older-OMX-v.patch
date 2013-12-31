@@ -47,7 +47,7 @@ index 16ba742..67b5e88 100644
      /* Returns this track's estimated latency in milliseconds.
       * This includes the latency due to AudioTrack buffer size, AudioMixer (if any)
 @@ -279,23 +291,23 @@ public:
- #ifdef QCOM_HARDWARE
+ #ifdef QCOM_DIRECTTRACK
              uint32_t    latency() const;
  #else
 -            uint32_t    latency() const     { return mLatency; }
