@@ -47,14 +47,14 @@ else
 	(cd frameworks/native; git am --abort)
 	echo "     [FAIL]"
 fi
-#echo -n "Apply patch 0003-libgui-Bring-back-support-for-mHeap-based-screenshot.patch"
-#(cd frameworks/native; git am ../../device/lge/p990/patches/0003-libgui-Bring-back-support-for-mHeap-based-screenshot.patch) > /dev/null 2>&1
-#if [ $? == 0 ]; then
-#	echo "     [DONE]"
-#else
-#	(cd frameworks/native; git am --abort)
-#	echo "     [FAIL]"
-#fi
+echo -n "Apply patch 0003-libgui-Bring-back-support-for-mHeap-based-screenshot.patch"
+(cd frameworks/native; git am ../../device/lge/p990/patches/0003-libgui-Bring-back-support-for-mHeap-based-screenshot.patch) > /dev/null 2>&1
+if [ $? == 0 ]; then
+	echo "     [DONE]"
+else
+	(cd frameworks/native; git am --abort)
+	echo "     [FAIL]"
+fi
 
 echo "Apply patch to frameworks/av"
 echo -n "Apply patch 0001-ifdef-for-ICS-Audio-Blob-compatibility.patch"
